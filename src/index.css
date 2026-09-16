@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  /* Light theme tokens */
+  --color-background: #F7F6F3;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F0EFEB;
+  --color-border: #E2E0DB;
+  --color-text-primary: #1C1C1E;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9E9E9E;
+  --color-primary: #0D9488;
+  --color-primary-hover: #0F766E;
+  --color-primary-foreground: #FFFFFF;
+  --color-destructive: #DC2626;
+  --color-destructive-foreground: #FFFFFF;
+
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius: 0.625rem;
+}
+
+/* Dark theme overrides */
+.dark {
+  --color-background: #0F0F0F;
+  --color-surface: #1A1A1A;
+  --color-surface-muted: #242424;
+  --color-border: #2E2E2E;
+  --color-text-primary: #F0EFE9;
+  --color-text-secondary: #A3A3A3;
+  --color-text-muted: #737373;
+  --color-primary: #A3E635;
+  --color-primary-hover: #84CC16;
+  --color-primary-foreground: #0F0F0F;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-color: var(--color-border);
+  /* Remove blue tap flash on Android */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: var(--font-family-sans);
+  /* Momentum scroll everywhere */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Prevent pull-to-refresh hijacking scroll */
+  overscroll-behavior-y: contain;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure scrollable containers get momentum scroll on iOS */
+.scroll-touch {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Minimum 44×44 touch target for interactive elements */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ── Accessibility ───────────────────────────────────────────────────────── */
+
+/* Respect reduced-motion preference — disable all transitions & animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus ring offset should be visible on both themes */
+:root {
+  --focus-ring-offset: #F7F6F3;
+}
+.dark {
+  --focus-ring-offset: #0F0F0F;
+}
+
+/* Ensure focus ring offset matches background */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip-to-content link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 1rem;
+}
