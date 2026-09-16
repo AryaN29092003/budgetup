@@ -21,7 +21,7 @@ function ThemeApplier({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/budgetup/'>
       <SettingsProvider>
         <ThemeApplier>
           <ToastProvider>
