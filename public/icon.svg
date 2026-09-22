@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Teal background circle -->
+  <rect width="512" height="512" rx="114" fill="#0D9488"/>
+  <!-- Stylised ₹ symbol in white -->
+  <text x="256" y="360" font-family="system-ui,sans-serif" font-size="300" font-weight="700"
+        text-anchor="middle" fill="white" opacity="0.95">₹</text>
+</svg>
