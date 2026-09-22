@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, ChevronRight, ArrowRight, Plus, TrendingDown, TrendingUp } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowRight, Plus, TrendingDown, TrendingUp, BarChart2 } from 'lucide-react'
 import { useTransactions } from '@/hooks/useTransactions'
 import { useCategories } from '@/hooks/useCategories'
 import { useSettings } from '@/hooks/useSettings'
@@ -310,6 +310,14 @@ export function HomePage() {
           <p className="text-sm text-[var(--color-text-muted)]">{greeting()}</p>
           <h1 className="text-2xl font-semibold text-[var(--color-text-primary)]">Dashboard</h1>
         </div>
+        <Link
+          to="/insights"
+          className="flex items-center gap-1.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-xs font-medium text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-muted)]"
+          aria-label="View insights"
+        >
+          <BarChart2 size={14} aria-hidden="true" />
+          Insights
+        </Link>
       </header>
 
       {/* Month switcher */}
