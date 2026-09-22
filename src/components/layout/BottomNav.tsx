@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
-
-import { Home, ArrowLeftRight, BarChart2, Settings, Plus } from 'lucide-react'
+import { Home, ArrowLeftRight, Settings, Plus, PieChart } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAddTransaction } from '@/contexts/AddTransactionContext'
 
@@ -9,11 +8,10 @@ type NavItem =
   | { kind: 'add';  icon: React.ElementType; label: string }
 
 const NAV_ITEMS: NavItem[] = [
-
-  { kind: 'link', to: '/',             icon: Home,          label: 'Home',         exact: true },
+  { kind: 'link', to: '/',             icon: Home,          label: 'Home',    exact: true },
   { kind: 'link', to: '/transactions', icon: ArrowLeftRight, label: 'Txns' },
   { kind: 'add',                        icon: Plus,          label: 'Add' },
-  { kind: 'link', to: '/insights',     icon: BarChart2,      label: 'Insights' },
+  { kind: 'link', to: '/budgets',      icon: PieChart,       label: 'Budgets' },
   { kind: 'link', to: '/settings',     icon: Settings,       label: 'Settings' },
 ]
 
